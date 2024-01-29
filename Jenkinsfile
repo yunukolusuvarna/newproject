@@ -31,7 +31,7 @@ pipeline {
 
         stage('Deployment') {
             steps {
-                sh 'sshpass -p "staragile" scp target/gamutkart.war ubuntu@174.129.141.202:/home/staragile/Distros/apache-tomcat-9.0.84/webapps"
+                sh 'sshpass -p "staragile" scp target/gamutkart.war staragile@172.31.45.130:/home/staragile/Distros/apache-tomcat-9.0.84/webapps"
             }
         }
     }
