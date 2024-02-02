@@ -21,7 +21,7 @@ pipeline {
         }
 	stage('Deployment') {
             steps {
-                sh 'sshpass -p staragile scp -o StrictHostKeyChecking=no target/gamutkart.war staragile@172.31.95.76:/root/apache-tomcat-9.0.85/webapps'
+                sh 'sshpass -p staragile scp -o StrictHostKeyChecking=no target/gamutkart.war staragile@172.31.95.76:/home/staragile/apache-tomcat-9.0.85/webapps'
             }
         }
 
