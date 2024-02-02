@@ -1,13 +1,6 @@
 pipeline {
     agent any
 
-//	tools {
-//		jdk 'jdk8'
-//	}
-//	environment {
-//		M2_INSTALL = "/usr/bin/mvn"
-//	}
-
     stages {
         stage('Clone-Repo') {
 	    	steps {
@@ -15,24 +8,22 @@ pipeline {
 	    	}
         }
 
-        stage('Build') {
+        stage('Compile') {
             steps {
-                sh 'mvn install -Dmaven.test.skip=true'
-            }
-        }
-		
-        stage('Unit Tests') {
-            steps {
-                sh 'mvn compiler:testCompile'
-                sh 'mvn surefire:test'
-                junit 'target/**/*.xml'
+                sh 'mvn clean compile'
             }
         }
 
-        stage('Deployment') {
+        stage('Package as WAR') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+	stage('Deployment') {
             steps {
                 sh 'sshpass -p "staragile" scp target/gamutkart.war staragile@172.31.95.76:/home/staragile/builds/workspace'
             }
         }
+
     }
 }
