@@ -9,15 +9,9 @@ pipeline {
         }
 	 stage ('Build'){
 	        steps {
-			sh 'mvn install'
+			sh 'mvn clean install'
                 }
 	}
-	
-        stage('Compile') {
-            steps {
-                sh 'mvn clean compile'
-            }
-        }
 
 	stage('Run Tests') {
 	    steps {
