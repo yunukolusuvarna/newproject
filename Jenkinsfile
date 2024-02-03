@@ -10,8 +10,9 @@ pipeline {
 	 stage ('Build'){
 	        steps {
 			sh 'mvn clean install'
-}
-}
+                }
+	}
+	
 
         stage('Compile') {
             steps {
@@ -29,4 +30,5 @@ pipeline {
 		sh 'sshpass -p staragile scp target/gamutkart.war staragile@172.31.84.250:/home/staragile/apache-tomcat-9.0.85/webapps/'
 	}
     }
+}
 }
