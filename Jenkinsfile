@@ -12,24 +12,24 @@ pipeline {
         }
 	stage('Build') {
 		steps {
-			sh 'mvn install'
+			sh 'maven install'
 		}
 	}	
  
 	stage ('Compile'){
 	        steps {
-			sh 'mvn clean compile'
+			sh 'maven clean compile'
                 }
 	}
 
 	stage('Run Tests') {
 	    steps {
-	       sh 'mvn test'
+	       sh 'maven test'
 	    }
 	}
         stage('Package as WAR') {
             steps {
-                sh 'mvn package'
+                sh 'maven package'
             }
         }
        
