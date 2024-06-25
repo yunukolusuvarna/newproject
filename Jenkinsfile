@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Clone-Repo') {
 	    	steps {
-	        	git url: 'https://github.com/yunukolusuvarna/newproject.git'
+	        	git url: 'https://github.com/yunukolusuvarna/newproject.git',
+				branch:'main'
 	    	}
         }
 	stage('Build') {
