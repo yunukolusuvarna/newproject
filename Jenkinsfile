@@ -1,7 +1,7 @@
 pipeline {
     agent any
      tools {
-        maven 'Maven 3.9.8'  // Use the name configured in Global Tool Configuration
+        maven 'maven'  // Use the name configured in Global Tool Configuration
     } 
     stages {
         stage('Clone-Repo') {
