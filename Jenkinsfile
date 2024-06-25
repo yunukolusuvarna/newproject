@@ -1,8 +1,6 @@
 pipeline {
     agent any
-     environment {
-        PATH = "/opt/apache-maven-3.9.8/bin:$PATH"
-    }
+     
     stages {
         stage('Clone-Repo') {
 	    	steps {
@@ -12,24 +10,24 @@ pipeline {
         }
 	stage('Build') {
 		steps {
-			sh 'maven install'
+			sh 'mvn install'
 		}
 	}	
  
 	stage ('Compile'){
 	        steps {
-			sh 'maven clean compile'
+			sh 'mvn clean compile'
                 }
 	}
 
 	stage('Run Tests') {
 	    steps {
-	       sh 'maven test'
+	       sh 'mvn test'
 	    }
 	}
         stage('Package as WAR') {
             steps {
-                sh 'maven package'
+                sh 'mvn package'
             }
         }
        
